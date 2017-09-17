@@ -7,6 +7,7 @@
 - 勉強開始、基礎知識なし、本はさっき買った
 - Redisもkvsってことだけ知ってる程度で知識なし
 - DockerはDockerfileを数珠繋ぎして起動まではわかる、Docker自体のメリットは1%も理解できてない
+- kubernetesをk8sと略しているのを見た　かっこいいので踏襲する
 
 ## REDIS
 
@@ -74,7 +75,7 @@ service "redis-slave" created
 replicationcontroller "redis-slave" created
 ```
 
-ポッドが増えた
+ポッドが増えた<br>
 ポッドというのはk8sにとっての単位のことのようだ
 
 ```
@@ -85,10 +86,10 @@ redis-slave-l8lb4    1/1       Running   0          45s
 redis-slave-sb4bs    1/1       Running   0          45s
 ```
 
-あれslaveが2個ある
-redis-slave-controller.yamlに、
-replicas: 2
-という記述があった
+あれslaveが2個ある<br>
+redis-slave-controller.yamlに、<br>
+replicas: 2<br>
+という記述があったので、あれを買えると何台も出てくるんだろう
 
 ```
 kubectl get rc
@@ -144,7 +145,7 @@ redis-master   10.15.254.75    <none>        6379/TCP   13m
 redis-slave    10.15.253.134   <none>        6379/TCP   9m
 ```
 
-バラバラでもいいけど、まとめて打てる
+バラバラでもいいけど、まとめて打てる　こっちのがいいね
 ```
 $ kubectl get pods,rc,services
 ```
