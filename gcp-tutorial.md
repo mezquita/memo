@@ -152,6 +152,26 @@ $ kubectl get pods,rc,services
 
 ## ゲストブック フロントエンドのデプロイ
 
+```
+$ kubectl create -f all-in-one/frontend.yaml
+service "frontend" created
+replicationcontroller "frontend" created
+```
+あれ、とおもったら、all-in-one/frontend.yamlの中にはcontrollerとserviceの両方が記載されてた<br>
+一個でもいいのね
 
+これで
+
+```
+$ kubectl get service
+NAME           CLUSTER-IP      EXTERNAL-IP     PORT(S)        AGE
+frontend       10.15.246.7     35.192.158.45   80:31741/TCP   9m
+kubernetes     10.15.240.1     <none>          443/TCP        1h
+redis-master   10.15.254.75    <none>          6379/TCP       40m
+redis-slave    10.15.253.134   <none>          6379/TCP       36m
+```
+
+こうなった。外部IPたたいたらもうアプリが起動してた超怖い<br>
+frontendのがわに、webサーバの設定書かれてるのかな？<br>
 
 
